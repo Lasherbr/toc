@@ -29,13 +29,4 @@ if(isset($_POST['logar'])) {
 
 }
 ?>
-Autenticacao
-
-<form method="post">
-    Nome
-<input type=text name=nome>
-    Senha
-    <input type=text name=senha>
-    <input type=submit name=logar>
-</form>
 

@@ -1,7 +1,10 @@
 <?php
 session_start();
 if($_SESSION['logado'] != "S") {
-    header("Location: /auth/");
+    header("Location: /login.html");
+    exit;
+} else {
+    header("Location: /index2.php");
     exit;
 }
 require_once "model/Db.class.php";
