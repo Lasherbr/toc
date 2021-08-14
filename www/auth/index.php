@@ -3,7 +3,7 @@ session_start();
 require_once "../model/User.class.php";
 $User = new User;
 if($_SESSION['logado'] == "S") {
-    header("Location: /");
+    header("Location: /index2.php");
     exit;
 }
 if(isset($_POST['logar'])) {
@@ -11,13 +11,13 @@ if(isset($_POST['logar'])) {
     if(ctype_alnum($_POST['nome'])) {
         $User->user = $_POST['nome'];
     } else {
-        header("Location: /");
+        header("Location: /login.html");
         exit;
     }
     if(ctype_alnum($_POST['senha'])) {
         $User->password = $_POST['senha'];
     } else {
-        header("Location: /");
+        header("Location: /login.html");
         exit;
     }
     if($User->Auth()) {
