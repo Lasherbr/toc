@@ -21,7 +21,7 @@ if(isset($_POST['logar'])) {
         exit;
     }
     if($User->Auth()) {
-        $_SESSION['logado'] == "S";
+        $_SESSION['logado'] = "S";
     } 
     
         header("Location: /");
