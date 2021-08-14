@@ -1,9 +1,6 @@
 <?php
 session_start();
-if($_SESSION['logado'] != "S") {
-    header("Location: /login.php");
-    exit;
-} else {
+if($_SESSION['logado'] == "S") {
     header("Location: /index2.php");
     exit;
 }
