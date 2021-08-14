@@ -10,3 +10,7 @@ $Db->m_connect();
 
 $Db->m_close();
 ?>
+
+
+
+<a href="auth/logoff.php">Logout</a>
