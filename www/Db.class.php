@@ -1,6 +1,6 @@
 <?php
 $documentroot = dirname(__FILE__);
-require_once "config.php";
+require_once "/config/config.php";
 // Registering Globals
 define("dbhost", $GLOBALS["db_host"]);
 define("dbuser", $GLOBALS["db_user"]);
