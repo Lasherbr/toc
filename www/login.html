@@ -41,7 +41,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Oie!</h1>
                                     </div>
-                                    <form class="user" action="auth/index.php" method="post">
+                                    <form class="user" action="auth/index.php" method="post" id="formulario">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="nome" name="nome" aria-describedby="emailHelp"
@@ -58,7 +58,7 @@
                                                     Me</label>
                                             </div>
                                         </div> -->
-                                        <a href="javascript:this.form.submit()" class="btn btn-primary btn-user btn-block">
+                                        <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
                                             Entrar
                                         </a>
                                         <hr>
