@@ -3,6 +3,7 @@ require_once "Db.class.php";
 class User {
     public $id_user;
     public $user;
+    public $password;
 
     public function Auth() {
         $Db = new Db;
