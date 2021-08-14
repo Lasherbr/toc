@@ -11,13 +11,13 @@ if(isset($_POST['logar'])) {
     if(ctype_alnum($_POST['nome'])) {
         $User->user = $_POST['nome'];
     } else {
-        header("Location: /login.html");
+        header("Location: /login.php");
         exit;
     }
     if(ctype_alnum($_POST['senha'])) {
         $User->password = $_POST['senha'];
     } else {
-        header("Location: /login.html");
+        header("Location: /login.php");
         exit;
     }
     if($User->Auth()) {

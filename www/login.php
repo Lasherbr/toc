@@ -1,3 +1,13 @@
+<?php
+session_start();
+if($_SESSION['logado'] != "S") {
+    header("Location: /login.php");
+    exit;
+} else {
+    header("Location: /index2.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
