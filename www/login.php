@@ -65,6 +65,7 @@ if($_SESSION['logado'] == "S") {
                                                     Me</label>
                                             </div>
                                         </div> -->
+                                        <input type=hidden name="logar" id="logar">
                                         <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
                                             Entrar
                                         </a>
