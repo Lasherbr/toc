@@ -382,139 +382,24 @@ if($_SESSION['logado'] != "S") {
 
 <div class="container">
 
-<!-- Outer Row -->
-<div class="row justify-content-center">
-
-    <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
-                    <div class="col-lg-6">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Registre o dia!</h1>
-                            </div>
-                            <form class="user" action="registro.php" method="post" id="formulario">
-                            <div class="form-group">
-    <label for="exampleFormControlTextarea1">Descricao do registro</label>
-    <textarea name="descricao" class="form-control" id="descricao" rows="5"></textarea>
-  </div>
-                                <div class="form-group">
-                                    Evento Nexus? (Algum evento mais relevante e/ou estressante do que o normal)
-                                    <select name="nexus">
-                                        <option value="N" selected>Não</option>
-                                        <option value="S">Sim</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    Grau de ansiedade medido por voce escala de 1 a 10, sendo 1 nenhum stress e 10 muito estressado(a)/ansioso(a).
-                                    <select name="grau_ansiedade_observador">
-                                        <?php
-                                        for($x=0;$x<=10;$x++) {
-                                        ?>
-                                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    Grau de ansiedade que o paciente relata em escala de 1 a 10, sendo 1 nenhum stress e 10 muito estressado(a)/ansioso(a).
-                                    <select name="grau_ansiedade_paciente">
-                                        <?php
-                                        for($x=0;$x<=10;$x++) {
-                                        ?>
-                                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <!-- <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">Remember
-                                            Me</label>
-                                    </div>
-                                </div> -->
-                                <input type=hidden name="logar" id="logar">
-                                <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
-                                    Registrar
-                                </a>
-                                <hr>
-                             
-                            </form>
-                            <hr>
-                            <!-- <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="register.html">Create an Account!</a>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- Outer Row -->
 <?php
-require_once "model/RegistroEvento.class.php";
-$RegistroEvento = new RegistroEvento;
-$Matriz = $RegistroEvento->ListaTipoEventos();
-
-for($x=0;$x<sizeof($Matriz);$x++) {
-    $TipoEvento = new TipoEvento;
-    $TipoEvento = $Matriz[$x];
+    require_once "model/RegistroEvento.class.php";
+    $RegistroEvento = new RegistroEvento;
+    $RegistroEvento->id_user = $_SESSION['id_user'];
+    // Fazer validacao de input depois
+    $RegistroEvento->id_tipo_evento = $_POST['id_tipo_evento']; 
+    $RegistroEvento->quantidade = $_POST['quantidade'];
+   
+    $RegistroEvento->RegistraEvento();
 ?>
-<div class="row justify-content-center">
-    <div class="col-xl-10 col-lg-12 col-md-9">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
-                    <div class="col-lg-6">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4"><?php echo $TipoEvento->tipo_evento;?></h1>
+Evento Registrado
 
-                                <?php echo $TipoEvento->descricao;?>
-
-                            </div>
-                            <form class="user" action="registro_evento.php" method="post" id="formulario">
-                                <input type="hidden" name="id_tipo_evento" value="<?php echo $TipoEvento->id_tipo_evento;?>" >
-                                <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="quantidade" name="quantidade" aria-describedby="emailHelp"
-                                                placeholder="0">
-                                        </div>
-                                <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
-                                    Registrar Quantidade
-                                </a>
-                                <hr>
-                             
-                            </form>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-}
-?>
+<a href="index.php" class="btn btn-secondary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </span>
+                                        <span class="text">Voltar</span>
+                                    </a>
 
 </div>
 
