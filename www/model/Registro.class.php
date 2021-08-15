@@ -17,6 +17,7 @@ class Registro {
         grau_ansiedade_observador = '$this->grau_ansiedade_observador',
         grau_ansiedade_paciente = '$this->grau_ansiedade_paciente'
         id_user = '$this->id_user'";
+        $Db->m_query($qr);
         $Db->m_close();
     }
 
