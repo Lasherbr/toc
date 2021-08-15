@@ -20,8 +20,9 @@ if(isset($_POST['logar'])) {
         header("Location: /login.php");
         exit;
     }
-    if($User->Auth()) {
+    if($id_user = $User->Auth()) {
         $_SESSION['logado'] = "S";
+        $_SESSION['id_user'] = $id_user;
     } 
     
         header("Location: /");

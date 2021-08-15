@@ -382,88 +382,26 @@ if($_SESSION['logado'] != "S") {
 
 <div class="container">
 
-<!-- Outer Row -->
-<div class="row justify-content-center">
+<?php
+    require_once "model/Registro.class.php";
+    $Registro = new Registro;
+    $Registro->id_user = $_SESSION['id_user'];
+    // Fazer validacao de input depois
+    $Registro->descricao = $_POST['descricao']; 
+    $Registro->nexus = $_POST['nexus'];
+    $Registro->grau_ansiedade_observador = $_POST['grau_ansiedade_observador'];
+    $Registro->grau_ansiedade_paciente = $_POST['grau_ansiedade_paciente'];
 
-    <div class="col-xl-10 col-lg-12 col-md-9">
+    $Registro->RegistraEvento();
+?>
+Evento Registrado
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                    <div class="col-lg-6">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Registre o Evento!</h1>
-                            </div>
-                            <form class="user" action="registro.php" method="post" id="formulario">
-                                <div class="form-group">
-                                    <input type="textarea" class="form-control form-control-user"
-                                        id="descricao" name="descricao" lines=5 aria-describedby="emailHelp"
-                                        placeholder="Descreva o Evento">
-                                </div>
-                                <div class="form-group">
-                                    Evento Nexus? (Algum evento mais relevante e/ou estressante do que o normal)
-                                    <select name="nexus">
-                                        <option value="N" selected>Não</option>
-                                        <option value="S">Sim</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    Grau de ansiedade medido por voce escala de 1 a 10, sendo 1 nenhum stress e 10 muito estressado(a)/ansioso(a).
-                                    <select name="grau_ansiedade_observador">
-                                        <?php
-                                        for($x=0;$x<=10;$x++) {
-                                        ?>
-                                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    Grau de ansiedade que o paciente relata em escala de 1 a 10, sendo 1 nenhum stress e 10 muito estressado(a)/ansioso(a).
-                                    <select name="grau_ansiedade_paciente">
-                                        <?php
-                                        for($x=0;$x<=10;$x++) {
-                                        ?>
-                                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <!-- <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">Remember
-                                            Me</label>
-                                    </div>
-                                </div> -->
-                                <input type=hidden name="logar" id="logar">
-                                <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
-                                    Registrar Evento
-                                </a>
-                                <hr>
-                             
-                            </form>
-                            <hr>
-                            <!-- <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="register.html">Create an Account!</a>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
+<a href="index.php" class="btn btn-secondary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </span>
+                                        <span class="text">Voltar</span>
+                                    </a>
 
 </div>
 
