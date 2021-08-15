@@ -491,14 +491,14 @@ for($x=0;$x<sizeof($Matriz);$x++) {
                                
 
                             </div>
-                            <form class="user" action="registro_evento.php" method="post" id="formulario">
+                            <form class="user" action="registro_evento.php" method="post" id="formulario<?php echo $x;?>">
                                 <input type="hidden" name="id_tipo_evento" value="<?php echo $TipoEvento->id_tipo_evento;?>" >
                                 <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="quantidade" name="quantidade" aria-describedby="emailHelp"
                                                 placeholder="0">
                                         </div>
-                                <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
+                                <a href="javascript:document.getElementById('formulario<?php echo $x;?>').submit();" class="btn btn-primary btn-user btn-block">
                                     Registrar Quantidade
                                 </a>
                                 <hr>
