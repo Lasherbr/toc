@@ -25,8 +25,8 @@ class RegistroEvento {
         while($x=$Db->m_fetch_array($rs)) {
             $TipoEvento = new TipoEvento;
             $TipoEvento->id_tipo_evento = $x['id_tipo_evento'];
-            $TipoEvento->tipo_evento = $x['tipo_evento'];
-            $TipoEvento->descricao = $x['descricaoo'];
+            $TipoEvento->tipo_evento = utf8_encode($x['tipo_evento']);
+            $TipoEvento->descricao = utf8_encode($x['descricaoo']);
             $Matriz[$cont++] = $TipoEvento;
         }
         $Db->m_close();

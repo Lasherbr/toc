@@ -487,8 +487,8 @@ for($x=0;$x<sizeof($Matriz);$x++) {
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4"><?php echo $TipoEvento->tipo_evento;?></h1>
-
-                                <?php echo $TipoEvento->descricao;?>
+                                <p class="mb-4"> <?php echo $TipoEvento->descricao;?></p>
+                               
 
                             </div>
                             <form class="user" action="registro_evento.php" method="post" id="formulario">
