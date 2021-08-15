@@ -395,11 +395,11 @@ if($_SESSION['logado'] != "S") {
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Registre o Evento!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Registre o dia!</h1>
                             </div>
                             <form class="user" action="registro.php" method="post" id="formulario">
                             <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <label for="exampleFormControlTextarea1">Descricao do registro</label>
     <textarea name="descricao" class="form-control" id="descricao" rows="5"></textarea>
   </div>
                                 <div class="form-group">
@@ -442,7 +442,7 @@ if($_SESSION['logado'] != "S") {
                                 </div> -->
                                 <input type=hidden name="logar" id="logar">
                                 <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
-                                    Registrar Evento
+                                    Registrar
                                 </a>
                                 <hr>
                              
@@ -462,6 +462,38 @@ if($_SESSION['logado'] != "S") {
 
     </div>
 
+</div>
+
+
+
+<!-- Outer Row -->
+<div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Registre o Evento!</h1>
+                            </div>
+                            <form class="user" action="registro_evento.php" method="post" id="formulario">
+                           
+                                <a href="javascript:document.getElementById('formulario').submit();" class="btn btn-primary btn-user btn-block">
+                                    Registrar
+                                </a>
+                                <hr>
+                             
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
