@@ -16,7 +16,8 @@ class Registro {
         nexus = '$this->nexus', 
         grau_ansiedade_observador = '$this->grau_ansiedade_observador',
         grau_ansiedade_paciente = '$this->grau_ansiedade_paciente'
-        id_user = '$this->id_user'";
+        id_user = '$this->id_user'"; 
+        echo $qr;
         $Db->m_query($qr);
         $Db->m_close();
     }

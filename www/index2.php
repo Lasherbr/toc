@@ -398,11 +398,10 @@ if($_SESSION['logado'] != "S") {
                                 <h1 class="h4 text-gray-900 mb-4">Registre o Evento!</h1>
                             </div>
                             <form class="user" action="registro.php" method="post" id="formulario">
-                                <div class="form-group">
-                                    <input type="textarea" class="form-control form-control-user"
-                                        id="desscricao" name="descricao" rows=5 aria-describedby="emailHelp"
-                                        placeholder="Descreva o Evento">
-                                </div>
+                            <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea name="descricao" class="form-control" id="descricao" rows="5"></textarea>
+  </div>
                                 <div class="form-group">
                                     Evento Nexus? (Algum evento mais relevante e/ou estressante do que o normal)
                                     <select name="nexus">
