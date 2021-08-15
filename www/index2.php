@@ -400,7 +400,7 @@ if($_SESSION['logado'] != "S") {
                             <form class="user" action="registro.php" method="post" id="formulario">
                                 <div class="form-group">
                                     <input type="textarea" class="form-control form-control-user"
-                                        id="descricao" name="descricao" lines=5 aria-describedby="emailHelp"
+                                        id="desscricao" name="descricao" rows=5 aria-describedby="emailHelp"
                                         placeholder="Descreva o Evento">
                                 </div>
                                 <div class="form-group">
