@@ -388,17 +388,44 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Oie!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Registre o Evento!</h1>
                             </div>
-                            <form class="user" action="auth/index.php" method="post" id="formulario">
+                            <form class="user" action="registro.php" method="post" id="formulario">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user"
+                                    <input type="textarea" class="form-control form-control-user"
                                         id="nome" name="nome" aria-describedby="emailHelp"
-                                        placeholder="Digite o nome">
+                                        placeholder="Descreva o Evento">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user"
-                                        id="senha" name="senha" placeholder="Password">
+                                    Evento Nexus? (Algum evento mais relevante e/ou estressante do que o normal)
+                                    <select name="nexus">
+                                        <option value="N" selected>Não</option>
+                                        <option value="S">Sim</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    Grau de ansiedade medido por voce escala de 1 a 10, sendo 1 nenhum stress e 10 muito estressado(a)/ansioso(a).
+                                    <select name="grau_ansiedade_observador">
+                                        <?php
+                                        for($x=0;$x<=10;$x++) {
+                                        ?>
+                                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    Grau de ansiedade que o paciente relata em escala de 1 a 10, sendo 1 nenhum stress e 10 muito estressado(a)/ansioso(a).
+                                    <select name="grau_ansiedade_paciente">
+                                        <?php
+                                        for($x=0;$x<=10;$x++) {
+                                        ?>
+                                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                                 <!-- <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
