@@ -40,6 +40,7 @@ class RegistroEvento {
         id_tipo_evento = '$this->id_tipo_evento', 
         quantidade = '$this->quantidade',
         id_user = '$this->id_user'"; 
+        echo $qr;
         $Db->m_query($qr);
         $Db->m_close();
     }
