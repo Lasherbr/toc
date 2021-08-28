@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['logado'] != "S") {
+    header("Location: /login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,36 +52,43 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Relatorio</h1>
-
-
+<?php
+    require_once "model/Registro.class.php";
+    $Registro = new Registro;
+    $Registro->id_user = $_SESSION['id_user'];
+    $MEventos = $Registro->RetornaEntradas();
+    ?>
                     <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Data/Hora</th>
+      <th scope="col">Descricao</th>
+      <th scope="col">Nexus</th>
+      <th scope="col">Nivel Stress Paciente</th>
+      <th scope="col">Nivel Stress Observador</th>
     </tr>
   </thead>
   <tbody>
+      <?php
+for($x=0;$x<sizeof($MEventos);$x++) {
+    $dthr_evento = $MEventos[$x]['dthr_evento'];
+    $descricao =       $MEventos[$x]['descricao'];
+    $nexus =         $MEventos[$x]['nexus'];
+    $grau_ansiedade_paciente =         $MEventos[$x]['grau_ansiedade_paciente'];
+    $grau_ansiedade_observador =         $MEventos[$x]['grau_ansiedade_observador'];
+    
+      ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $dthr_evento;?></th>
+      <td><?php echo $descricao;?></td>
+      <td><?php echo $nexus;?></td>
+      <td><?php echo $grau_ansiedade_paciente;?></td>
+      <td><?php echo $grau_ansiedade_observador;?></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <?php
+}
+    ?>
+   
   </tbody>
 </table>
 

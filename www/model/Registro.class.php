@@ -21,5 +21,23 @@ class Registro {
         $Db->m_close();
     }
 
+    public function RetornaEntradas() {
+        $Db = new Db;
+        $MEventos = array();
+        $cont=0;
+        $qr = "select * from registro where id_user = '$this->id_user'"; 
+        $rs = $Db->m_query($qr);
+        while($x=$Db->m_fetch_array($rs)) {
+            $MEventos[$cont]['dthr_evento'] = $x['dthr_evento'];
+            $MEventos[$cont]['descricao'] = $x['descricao'];
+            $MEventos[$cont]['nexus'] = $x['nexus'];
+            $MEventos[$cont]['grau_ansiedade_paciente'] = $x['grau_ansiedade_paciente'];
+            $MEventos[$cont++]['grau_ansiedade_observador'] = $x['grau_ansiedade_observador'];
+
+        }
+        $Db->m_close();
+        return $MEventos;
+    }
+
 }
 ?>
